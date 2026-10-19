@@ -6,7 +6,7 @@
 
 Outil en ligne de commande qui lit le journal d'accès d'un serveur web **Apache** (`access.log`) et en tire des statistiques de fréquentation. Il repère aussi les requêtes suspectes et les navigateurs utilisés.
 
-Mini-projet de 1re année de **DUT Réseaux & Télécommunications** (2020).
+Mini-projet de 1re année de **DUT Réseaux & Télécommunications** (2021).
 
 <p align="center">
   <img src="docs/img/mode-graphique.png" alt="Mode graphique : histogramme SDL des connexions par mois" width="430">
