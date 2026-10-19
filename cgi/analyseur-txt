@@ -1,0 +1,5 @@
+#!/bin/bash
+# CGI : version texte de l'analyseur
+printf "Content-type: text/plain\n\n"
+
+./analyseur -txt
