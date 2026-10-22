@@ -2,11 +2,11 @@
 
 ![Langage](https://img.shields.io/badge/langage-C-blue)
 ![Plateforme](https://img.shields.io/badge/plateforme-Linux-lightgrey)
-![Bibliothèque](https://img.shields.io/badge/graphique-SDL%201.2-orange)
+![Bibliothèque](https://img.shields.io/badge/graphique-SDL%203-orange)
 
 Outil en ligne de commande qui lit le journal d'accès d'un serveur web **Apache** (`access.log`) et en tire des statistiques de fréquentation. Il repère aussi les requêtes suspectes et les navigateurs utilisés.
 
-Mini-projet de 1re année de **DUT Réseaux & Télécommunications** (2021).
+Mini-projet de 1re année de **DUT Réseaux & Télécommunications** (2020).
 
 <p align="center">
   <img src="docs/img/mode-graphique.png" alt="Mode graphique : histogramme SDL des connexions par mois" width="430">
@@ -22,8 +22,8 @@ Mini-projet de 1re année de **DUT Réseaux & Télécommunications** (2021).
 ## Démarrage rapide
 
 ```bash
-# Dépendances (Debian / Ubuntu)
-sudo apt install build-essential libsdl1.2-dev libsdl-ttf2.0-dev fonts-dejavu-core
+# Dépendances (Debian 13 / Ubuntu 25.04 et +)
+sudo apt install build-essential libsdl3-dev libsdl3-ttf-dev fonts-dejavu-core
 
 # Compilation (analyse par défaut le log d'exemple data/access.log)
 make
@@ -69,7 +69,7 @@ Sur le log d'exemple, **3 833 requêtes suspectes** sont relevées, réparties e
 
 ### Graphique : `./analyseur -gr`
 
-L'histogramme est dessiné avec une petite surcouche de SDL 1.2 (`lib/libgraphique`). Voir la capture en haut de page.
+L'histogramme est dessiné avec une petite surcouche de SDL 3 (`lib/libgraphique`), portée depuis la version SDL 1.2 d'origine. Voir la capture en haut de page.
 
 ### Web (CGI) : `./analyseur`
 
@@ -152,11 +152,10 @@ Les autres limites :
 - La détection d'attaques repose uniquement sur la longueur de la requête.
 - Le relevé des navigateurs est approximatif : il garde le premier mot du user-agent, souvent `Mozilla`.
 - Le fichier est relu en entier à chaque exécution, il n'y a pas d'analyse en temps réel.
-- La bibliothèque graphique est en **SDL 1.2**, qui est obsolète.
 
 ## Évolutions prévues
 
-- [ ] Portage de la partie graphique en **SDL 3**
+- [x] Portage de la partie graphique en **SDL 3**
 - [ ] Analyse en temps réel (suivi du fichier comme `tail -f`)
 - [ ] Détection plus fine : brute force, scans, codes HTTP 4xx/5xx par IP
 - [ ] Analyse d'autres journaux (`auth.log`, `journald`)
